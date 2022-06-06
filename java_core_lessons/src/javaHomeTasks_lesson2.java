@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class javaHomeTasks {
+public class javaHomeTasks_lesson2 {
 
 
     public static void main(String[] args) {
@@ -37,8 +37,7 @@ public class javaHomeTasks {
 
 
 //        3 Написать программу, которая вычисляет площадь круга.
-//        Для вычислений можно использовать библиотеку Math
-//        (Math.pow() для возведения в квадрат)
+
         System.out.println("---");
         System.out.println("task3:");
         System.out.print("enter radius of circle: ");
