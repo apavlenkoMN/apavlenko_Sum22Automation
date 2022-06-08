@@ -16,13 +16,15 @@ public class Magnitude_HT3 {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter two numbers: ");
-        int number1 = Math.abs(scanner.nextInt());
-        int number2 = Math.abs(scanner.nextInt());
+//        int number1 = Math.abs(scanner.nextInt());
+//        int number2 = Math.abs(scanner.nextInt());
+        int number1 = scanner.nextInt();
+        int number2 = scanner.nextInt();
 
-        if (number1 > number2 ){
+        if (Math.abs(number1) > Math.abs(number2) ){
             System.out.println(number1 + " is bigger than " + number2 );
         }
-        else if (number1 < number2){
+        else if (Math.abs(number1) < Math.abs(number2)){
             System.out.println(number1 + " is less than " + number2 );
         }
         else {
