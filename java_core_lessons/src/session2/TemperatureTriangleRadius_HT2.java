@@ -2,7 +2,7 @@ package session2;
 
 import java.util.Scanner;
 
-public class JavaHomeTasks_lesson2 {
+public class TemperatureTriangleRadius_HT2 {
 
 
     public static void main(String[] args) {
