@@ -21,26 +21,27 @@ public class AdvancedTask_HT4 {
 
         Random random = new Random();
 
-        int[] cardPool = new int[52]; //общая колода
+        int[] cardPool = new int[56]; //общая колода
 
         int[] cardInHandPool = new int[20];
 
         int cardCounter;
         String cardSuit;
+        int playerNumber = 1;
 
         int randStorage = 0;
         for (int i = 0; i < cardInHandPool.length; i++) {
             cardInHandPool[i] = 0; // заполнить нулями, пустые руки
         }
 
-        System.out.println(Arrays.toString(cardInHandPool));
+  //      System.out.println(Arrays.toString(cardInHandPool));
 
         boolean alreadyExist = false;
 
         for (int i = 0; i < cardInHandPool.length;) {
 
             do {
-                randStorage = random.nextInt(52) + 1;
+                randStorage = random.nextInt(52) + 2;
                 for (int j = 0; j < cardInHandPool.length; j++) {
                     if (cardInHandPool[j] == randStorage) {
                         alreadyExist = true;
@@ -51,6 +52,12 @@ public class AdvancedTask_HT4 {
                 }
                 if (alreadyExist == false) {
                     cardInHandPool[i] = randStorage;
+
+
+                    if(playerNumber==5){ playerNumber=1;}
+  //                  System.out.println("player " + playerNumber + " , Suit is : " + getSuit(cardInHandPool[i]) + " , and card is " + getCardValue(cardInHandPool[i]));
+                    System.out.println("player " + playerNumber + " get the card " + getCardValue(cardInHandPool[i]) + " of " + getSuit(cardInHandPool[i]));
+                    playerNumber++;
                     i++;
                     break;
                 }
@@ -58,57 +65,58 @@ public class AdvancedTask_HT4 {
             // cardInHandPool[i]=randStorage;
 
 
-            System.out.println(Arrays.toString(cardInHandPool));
+         //   System.out.println(Arrays.toString(cardInHandPool));
+        }
+
+
+        System.out.println(Arrays.toString(cardInHandPool));
+
+
+    }
+
+
+    static String getSuit(int num) {
+        if (num > 0 && num <= 14) {
+            return "Diamond";
+        } else if (num > 14 && num <= 28) {
+            return "Hearts";
+        } else if (num > 28 && num <= 42) {
+            return "Clubs";
+        } else if (num > 42 && num <= 56) {
+            return "Spades";
+        } else {
+            return "wrong operation logic";
         }
     }
+
+    // 2-10, 11v 12d 13k 14t, 15=2, 15++18
+    static String getCardValue(int numb) {
+        if (numb > 0 && numb <= 10) {
+            return Integer.toString(numb);
+        } else if (numb >= 15 && numb <= 24) {
+            return Integer.toString(numb-14);
+        } else if (numb >= 29 && numb <= 37) {
+            return Integer.toString(numb-28);
+        } else if (numb >= 43 && numb <= 52) {
+            return Integer.toString(numb-41);
+        } else if (numb ==11 || numb ==25 || numb ==39 || numb == 53) {
+            return "V";
+        } else if (numb ==12 || numb ==26 || numb ==40 || numb == 54) {
+            return "D";
+        } else if (numb ==13 || numb ==27 || numb ==41 || numb == 55) {
+            return "K";
+        } else if (numb ==14 || numb ==28 || numb ==42 || numb == 56) {
+            return "T";
+        } else{
+            return "wrong operation logic";
+        }
+    }
+
+
+
 }
 
 
-//
-//
-//        cardInHandPool[j] = randStorage;
-////
-////            if(cardInHandPool[j] >0 && cardInHandPool[j] < 13){
-////                cardSuit = "Diamonds";
-////                if(cardInHandPool[j] >0 && cardInHandPool[j] < 8){
-////
-////                }
-////
-////            }
-////            else if (cardInHandPool[j] >0 && cardInHandPool[j] < 13)
-//            System.out.println();
-//            System.out.println(Arrays.toString(cardInHandPool));
-//        }
-
-     //   System.out.println(Arrays.toString(cardInHandPool));
-
-//        for (int k=1;k<cardInHandPool.length;k++){
-//            System.out.println(cardInHandPool[k]);
-//        }
-
-
-
-
-//
-//        int j=1;
-//        do {
-//            randStorage = random.nextInt(100);
-//        } while (cardInHandPool[j] != randStorage);
-
-//        for (int i=1;i<=cardInHandPool.length;){
-//            randStorage = random.nextInt(100);
-//            for (int j=1;j<=cardInHandPool.length;j++){
-//                if (cardInHandPool[j] == randStorage){
-//                    break;
-//                }
-//                else {
-//                    cardInHandPool[i] = randStorage;
-//                    i++;
-//                }
-//
-//            }
-
-//        }
 
 
 
