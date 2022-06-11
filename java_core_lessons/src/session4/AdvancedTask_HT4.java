@@ -41,6 +41,8 @@ public class AdvancedTask_HT4 {
             do {
                 randStorage = random.nextInt(54) + 2;
                 for (int j = 0; j < cardInHandPool.length; j++) {
+                    //проходим по массиву, если рандЧисла нет в уже существующих - меняем на alreadyExist = false,
+                    // если есть - гоняем по кругу, пока не выпадет рандом из новых
                     if (cardInHandPool[j] == randStorage) {
                         alreadyExist = true;
                         break;
@@ -49,6 +51,8 @@ public class AdvancedTask_HT4 {
                     }
                 }
                 if (alreadyExist == false) {
+                    //если нет в существующих - записываем рандом в массив, выводим сообщение,
+                    // двигаемся к следующему элементу массива (i++)
                     cardInHandPool[i] = randStorage;
 
 
