@@ -21,12 +21,10 @@ public class AdvancedTask_HT4 {
 
         Random random = new Random();
 
-        int[] cardPool = new int[56]; //общая колода
+//        int[] cardPool = new int[56]; //общая колода
 
         int[] cardInHandPool = new int[20];
 
-        int cardCounter;
-        String cardSuit;
         int playerNumber = 1;
 
         int randStorage = 0;
@@ -41,7 +39,7 @@ public class AdvancedTask_HT4 {
         for (int i = 0; i < cardInHandPool.length;) {
 
             do {
-                randStorage = random.nextInt(52) + 2;
+                randStorage = random.nextInt(54) + 2;
                 for (int j = 0; j < cardInHandPool.length; j++) {
                     if (cardInHandPool[j] == randStorage) {
                         alreadyExist = true;
