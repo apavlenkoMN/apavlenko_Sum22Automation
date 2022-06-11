@@ -1,5 +1,6 @@
 package session4;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class CyclesAndArrays_HT4 {
@@ -47,8 +48,9 @@ public class CyclesAndArrays_HT4 {
             if(randArray[i]%2==0){
                 randArray[i]=0;
             }
-            System.out.println("element"+i +" with value " + randArray[i]);
+            //System.out.println("element"+ i +" with value " + randArray[i]);
         }
+        System.out.println(Arrays.toString(randArray));
 
         System.out.println("---");
         System.out.println("Part3:");
@@ -62,11 +64,13 @@ public class CyclesAndArrays_HT4 {
         int sum = 0;
 
         for (int i=0;i<randArray2.length;i++){
-            randArray[i] = random.nextInt(100);
-            System.out.println("element"+i +" with value " + randArray[i]);
-            sum = sum + randArray[i];
-        }
+            randArray2[i] = random.nextInt(100);
+            //System.out.println("element"+ i +" with value " + randArray2[i]);
 
+            sum = sum + randArray2[i];
+        }
+        System.out.println(Arrays.toString(randArray2));
+        System.out.println("sum of all elements is " + sum + " and " + arrLen2 + " is n of elements");
         System.out.println("average is " + sum/randArray2.length);
 
 
