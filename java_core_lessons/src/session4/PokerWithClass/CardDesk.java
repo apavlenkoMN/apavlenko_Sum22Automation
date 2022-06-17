@@ -32,20 +32,22 @@ public class CardDesk {
         System.out.println(Arrays.toString(cardDesk));
     }
 
-    public void giveCard() {
+    public void giveCard(int players, int cards) {
         int playerNumber = 1;
-        for (int i = 0; i <= 20; i++) {
-            CardPrint.getSuit(i);
 
-//            System.out.println("player " + playerNumber + "get the card " + CardDrop.getCardValue(cardDesk[i]) +
-//                    " of " + CardDrop.getSuit(cardDesk[i]));
+        if(cards*players>56){
+            System.out.println( "too many cards for each player, desk is smaller");}
+        else {
+        for (int i = 0; i <= cards*players; i++) {
 
-            if(playerNumber==5){ playerNumber=1;}
-            //                  System.out.println("player " + playerNumber + " , Suit is : " + getSuit(cardInHandPool[i]) + " , and card is " + getCardValue(cardInHandPool[i]));
-            System.out.println("player " + playerNumber + " get the card " + CardPrint.getCardValue(cardDesk[i]) +
-                    " of " + CardPrint.getSuit(cardDesk[i]));
-            playerNumber++;
-
+//            if(playerNumber==5){ playerNumber=1;}
+                if (playerNumber > players) {
+                    playerNumber = 1;
+                }
+                System.out.println("player " + playerNumber + " get the card " + CardPrint.getCardValue(cardDesk[i]) +
+                        " of " + CardPrint.getSuit(cardDesk[i]));
+                playerNumber++;
+            }
         }
     }
 }

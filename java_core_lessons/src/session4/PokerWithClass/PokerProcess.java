@@ -11,7 +11,7 @@ public class PokerProcess {
         cardDesk.shuffle();
         cardDesk.printDesk();
 
-        cardDesk.giveCard();
+        cardDesk.giveCard(4, 5);
 
     }
 }
