@@ -16,12 +16,12 @@ public class BuyList_HT6 {
 
         Random random = new Random();
 
-        Product_HT6 product1 = new Product_HT6("Prod1", random.nextInt(100), 23);
-        Product_HT6 product2 = new Product_HT6("Prod2", random.nextInt(100), 63.41);
-        Product_HT6 product3 = new Product_HT6("Prod3", random.nextInt(100), 13.05);
+        Product product1 = new Product("Prod1", random.nextInt(100), 23);
+        Product product2 = new Product("Prod2", random.nextInt(100), 63.41);
+        Product product3 = new Product("Prod3", random.nextInt(100), 13.05);
 
 
-        List<Product_HT6> buyList = new LinkedList<>(Arrays.asList(new Product_HT6("Product5", 3, 22.12), new Product_HT6("Product6", 23, 12.12), new Product_HT6("Product7", 5, 42.12), new Product_HT6("Product2", 1, 2.12)));
+        List<Product> buyList = new LinkedList<>(Arrays.asList(new Product("Product5", 3, 22.12), new Product("Product6", 23, 12.12), new Product("Product7", 5, 42.12), new Product("Product2", 1, 2.12)));
 
         buyList.add(product1);
         buyList.add(product2);
@@ -29,9 +29,9 @@ public class BuyList_HT6 {
 
         System.out.println("original: " + buyList);
 
-        Collections.sort(buyList, new Comparator<Product_HT6>() {
+        Collections.sort(buyList, new Comparator<Product>() {
             @Override
-            public int compare(Product_HT6 o1, Product_HT6 o2) {
+            public int compare(Product o1, Product o2) {
                 return o2.getTotalCost() - o1.getTotalCost();
             }
         });

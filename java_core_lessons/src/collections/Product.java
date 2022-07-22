@@ -1,6 +1,8 @@
 package collections;
 
-public class Product_HT6 {
+import java.util.Comparator;
+
+public class Product {
 
     private int quantity;
     private String name;
@@ -31,12 +33,12 @@ public class Product_HT6 {
         this.price = price;
     }
 
-    public int getTotalCost(){
-        return this.quantity * (int)this.price;
+    public int getTotalCost() {
+        return this.quantity * (int) this.price;
     }
 
 
-    public Product_HT6(String name, int quantity, double price){
+    public Product(String name, int quantity, double price) {
         setName(name);
         setPrice(price);
         setQuantity(quantity);
@@ -53,19 +55,40 @@ public class Product_HT6 {
 
     @Override
     public String toString() {
-        return "{" + name  +
+        return "{" + name +
                 " , quantity = " + quantity +
                 ", price = " + price +
                 '}';
     }
 
-    public void printProduct(Product_HT6 p){
+    public void printProduct(Product p) {
         System.out.print(p.getName() + " - ");
         System.out.print(p.getQuantity() + " - ");
         System.out.print(p.getPrice());
         System.out.println();
     }
 
-
-
 }
+
+class ComparatorByName implements Comparator<Product> {
+
+    @Override
+    public int compare(Product o1, Product o2) {
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+
+class ComparatorByPrice implements Comparator<Product>{
+    public int compare(Product o1, Product o2) {
+        if (o1.getPrice() > o2.getPrice()){
+            return 1;
+        }
+        else if (o1.getPrice() < o2.getPrice()){
+            return -1;
+        }
+        else return 0;
+    }
+}
+
+
+
