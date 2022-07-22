@@ -18,15 +18,16 @@ public class CollectionDuplicates_HT6 {
         List<Integer> collectionDuplicate = new LinkedList<>();
         List<Integer> deletedItems = new LinkedList<>();
         int count = 0;
+        int size = 35;
 
-        for(int i = 0; i<100; i++){
-            collectionDuplicate.add(random.nextInt(100));
+        for(int i = 0; i<size; i++){
+            collectionDuplicate.add(random.nextInt(size));
         }
 
-        System.out.println("size of original " + collectionDuplicate.size());
-        System.out.println("size of deleted " + deletedItems.size());
+//        System.out.println("initial size of original " + collectionDuplicate.size());
+//        System.out.println("initial size of deleted " + deletedItems.size());
 
-        System.out.println("original: " + collectionDuplicate);
+        System.out.println("original list: " + collectionDuplicate);
 
         for(int i = 0; i<collectionDuplicate.size(); i++){
             for(int y = 0; y<collectionDuplicate.size(); y++)
@@ -38,11 +39,11 @@ public class CollectionDuplicates_HT6 {
         }
 
 
-        System.out.println("size of original " + collectionDuplicate.size());
-        System.out.println("size of deleted " + deletedItems.size());
-        System.out.println("count is " + count);
-        System.out.println("after: " + collectionDuplicate);
-        System.out.println("after: " + deletedItems);
+//        System.out.println("size of processed list " + collectionDuplicate.size());
+//        System.out.println("size of deleted items list " + deletedItems.size());
+        System.out.println("count of duplicated items is " + count);
+        System.out.println("processed list: " + collectionDuplicate);
+        System.out.println("list of deleted items: " + deletedItems);
 
 
     }
