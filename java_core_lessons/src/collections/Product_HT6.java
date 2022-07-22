@@ -1,6 +1,6 @@
 package collections;
 
-public class Product {
+public class Product_HT6 {
 
     private int quantity;
     private String name;
@@ -36,7 +36,7 @@ public class Product {
     }
 
 
-    public Product(String name, int quantity, double price){
+    public Product_HT6(String name, int quantity, double price){
         setName(name);
         setPrice(price);
         setQuantity(quantity);
@@ -59,7 +59,7 @@ public class Product {
                 '}';
     }
 
-    public void printProduct(Product p){
+    public void printProduct(Product_HT6 p){
         System.out.print(p.getName() + " - ");
         System.out.print(p.getQuantity() + " - ");
         System.out.print(p.getPrice());
