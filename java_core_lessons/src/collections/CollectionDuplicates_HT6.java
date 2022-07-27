@@ -28,7 +28,7 @@ public class CollectionDuplicates_HT6 {
 //        System.out.println("initial size of deleted " + deletedItems.size());
 
         System.out.println("original list: " + collectionDuplicate);
-
+        long m1 = System.currentTimeMillis();
         for(int i = 0; i<collectionDuplicate.size(); i++){
             for(int y = 0; y<collectionDuplicate.size(); y++)
             if (collectionDuplicate.get(i).equals(collectionDuplicate.get(y))){
@@ -37,6 +37,7 @@ public class CollectionDuplicates_HT6 {
                 count++;
             }
         }
+        System.out.println("Time (way one): " + (double) (System.currentTimeMillis() - m1) + "\n");
 
 
 //        System.out.println("size of processed list " + collectionDuplicate.size());
@@ -45,6 +46,14 @@ public class CollectionDuplicates_HT6 {
         System.out.println("processed list: " + collectionDuplicate);
         System.out.println("list of deleted items: " + deletedItems);
 
+        long m2 = System.currentTimeMillis();
+        Set<Integer> setCollection = new HashSet<>();
+
+        for (int i = 0; i<collectionDuplicate.size(); i++){
+            setCollection.add(collectionDuplicate.get(i));
+        }
+        System.out.println("Time (way two): " + (double) (System.currentTimeMillis() - m2) + "\n");
+        System.out.println("uniq set without duplicates: " + setCollection);
 
     }
 
