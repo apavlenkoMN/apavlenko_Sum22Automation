@@ -1,13 +1,9 @@
 package com.provectus.tests;
 
-import Pages.BaseLogin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -50,13 +46,8 @@ public class LoginTest extends BaseTest{
         driver.get("https://the-internet.herokuapp.com/login");
 
         WebElement username = driver.findElement(By.id("username"));
-        //username.sendKeys("tomsmith");
         username.sendKeys(user);
 
-//        WebElement username2 = userNameInput;
-//        username2.sendKeys("tomsmith2");
-
-//        userNameInput.sendKeys("tomsmith3");
 
         if (user == "tomsmith") {
             WebElement pass = driver.findElement(By.id("password"));
@@ -102,25 +93,7 @@ public class LoginTest extends BaseTest{
     }
 
 
-    //
-//    @Test (groups = "Group1", description = "depends on test1")
-//    public void LoginTest2() {
-//
-//        WebDriverManager.chromedriver().setup();
-//        WebDriver driver = new ChromeDriver();
-//
-//        driver.get("https://the-internet.herokuapp.com/login");
-//
-//        userNameInput.sendKeys("tomsmith");
-//        password.sendKeys("SuperSecretPassword!");
-//        submit.click();
-//
-//        Assert.assertEquals(getHeaderText(),"Secure Area");
-//
-//        driver.quit();
-//    }
-//
-//
+
     @Parameters({"name", "pass"})
     @Test (groups = {"Group2"})
     public void LoginTest3(String name, String password) {
