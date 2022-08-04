@@ -26,7 +26,7 @@
 <!--            <class name="com.provectus.tests.LoginTest"></class>-->
 
 
-<!--            <class name="com.provectus.tests.LoginTrueFalse"></class>-->
+            <class name="com.provectus.tests.LoginTrueFalse"></class>
             <class name="com.provectus.tests.clicksDOM"></class>
         </classes>
     </test>
