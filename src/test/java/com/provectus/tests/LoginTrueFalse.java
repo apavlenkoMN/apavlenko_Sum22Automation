@@ -51,11 +51,8 @@ public class LoginTrueFalse extends BaseTest{
         WebElement submit = driver.findElement(By.cssSelector("button.radius"));
         submit.click();
 
-        WebElement header = driver.findElement(By.id("flash"));
-//        Assert.assertEquals(header.getText(), "You2 logged into a secure area!\n" +
-//                "×");
-
-        Assert.assertTrue(header.getText().contains("You logged into a secure area"));
+        WebElement result = driver.findElement(By.id("flash"));
+        Assert.assertTrue(result.getText().contains("You logged into a secure area"));
 
         driver.quit();
     }
@@ -78,9 +75,9 @@ public class LoginTrueFalse extends BaseTest{
         WebElement submit = driver.findElement(By.cssSelector("button.radius"));
         submit.click();
 
-        WebElement header = driver.findElement(By.id("flash"));
-        Assert.assertTrue(header.getText().contains("Your username is invalid!"));
-//        Assert.assertEquals(header.getText(), "Your username is invalid!");
+        WebElement result = driver.findElement(By.id("flash"));
+        Assert.assertTrue(result.getText().contains("Your username is invalid!"));
+//        Assert.assertEquals(result.getText(), "Your username is invalid!");
 
         driver.quit();
     }
