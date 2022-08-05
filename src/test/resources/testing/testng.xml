@@ -14,16 +14,20 @@
         <parameter name="name" value="tomsmith"></parameter>
         <parameter name="pass" value="SuperSecretPassword"></parameter>
 
-        <groups>
-            <run>
-                <include name = "Group1"></include>
-                <include name = "Group2"></include>
-            </run>
-        </groups>
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name = "Group1"></include>-->
+<!--                <include name = "Group2"></include>-->
+<!--            </run>-->
+<!--        </groups>-->
 
         <classes>
 <!--            <class name="com.provectus.tests.TestEx"/>-->
-            <class name="com.provectus.tests.LoginTest"></class>
+<!--            <class name="com.provectus.tests.LoginTest"></class>-->
+
+
+            <class name="com.provectus.tests.LoginTrueFalse"></class>
+            <class name="com.provectus.tests.clicksDOM"></class>
         </classes>
     </test>
 </suite>
