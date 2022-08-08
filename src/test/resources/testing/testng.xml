@@ -26,8 +26,9 @@
 <!--            <class name="com.provectus.tests.LoginTest"></class>-->
 
 
-            <class name="com.provectus.tests.LoginTrueFalse"></class>
-            <class name="com.provectus.tests.clicksDOM"></class>
+<!--            <class name="com.provectus.tests.LoginTrueFalse"></class>-->
+<!--            <class name="com.provectus.tests.clicksDOM"></class>-->
+            <class name="com.provectus.tests.WebDriverAdvancedHT"></class>
         </classes>
     </test>
 </suite>
