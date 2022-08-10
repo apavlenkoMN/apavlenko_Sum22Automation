@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DOMPage;
+import pages.DragDropPage;
 import pages.HoversPage;
 import pages.MainPage;
 
@@ -26,44 +27,21 @@ public class WebDriverAdvancedHT_PO extends BaseTest {
     // https://crossbrowsertesting.github.io/drag-and-drop.html - написать тест,
     // который будет перетаскивать элементы и проверять результат (Dropped!)
 
-
-
-//
 //    @Test(description = "dragAndDrop", priority = 10)
 //    public void DragAndDrop() throws InterruptedException {
 //
 //
 //        MainPage mainPage = new MainPage(driver);
-//        mainPage.goToDOMPage();
-//
-//
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//
 //        driver.get("https://crossbrowsertesting.github.io/drag-and-drop.html");
 //
-//        WebElement dragbleElement =  driver.findElement(By.id("draggable"));
-//        WebElement droppableElement =  driver.findElement(By.id("droppable"));
+//        DragDropPage dragDropPage = new DragDropPage(driver);
+//        dragDropPage.dragAndDrop();
 //
-//
-//        Assert.assertTrue(droppableElement.getText().contains("Drop here"));
-//        Actions actions = new Actions(driver);
-//
-//        actions.dragAndDrop(dragbleElement,droppableElement).build().perform();
-//
-//        //OR
-//        actions.moveToElement(dragbleElement).clickAndHold()
-//                .moveToElement(droppableElement).release()
-//                .build().perform();
-//
-//
-//        Assert.assertTrue(droppableElement.getText().contains("Dropped!"));
-//
-//        driver.quit();
+//        dragDropPage.dragAndDrop2();
 //    }
-//
-//
-//
+
+
+
 //    // https://crossbrowsertesting.github.io/hover-menu.html - написать тест,
 //    // который раскрывает dropdown-меню, кликает на пункт Secondary Action и проверяет,
 //    // что текст "Secondary Page" отобразился на странице
@@ -102,27 +80,11 @@ public class WebDriverAdvancedHT_PO extends BaseTest {
 //    }
 
 
-    //https://the-internet.herokuapp.com/hovers - написать тест,
-    // который выводит юзернейм каждого пользователя (для этого нужно навести мышку на аватар)
-//
-//    @Test (description = "hover and usernames", priority = 30)
-//    public void Hover() throws InterruptedException{
-//
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.goToHoversPage();
-//
-//
-//        HoversPage hoversPage = new HoversPage(driver);
-//
-//        hoversPage.checkAllUsers();
-//
-//    }
+//    https://the-internet.herokuapp.com/hovers - написать тест,
+//     который выводит юзернейм каждого пользователя (для этого нужно навести мышку на аватар)
 
-
-    @Test (description = "hover and usernames 2nd way", priority = 40)
-    public void hoversTest2() {
-
-
+    @Test (description = "hover and usernames", priority = 30)
+    public void Hover() throws InterruptedException{
 
         MainPage mainPage = new MainPage(driver);
         mainPage.goToHoversPage();
@@ -130,50 +92,35 @@ public class WebDriverAdvancedHT_PO extends BaseTest {
 
         HoversPage hoversPage = new HoversPage(driver);
 
-         // hoversPage.titleIsDisplayed();
+        hoversPage.checkAllUsers();
+
+    }
+
+
+    @Test (description = "hover and usernames 2nd way", priority = 40)
+    public void hoversTest2() {
+
+
+//
+//        MainPage mainPage2 = new MainPage(driver);
+//        driver.get("https://the-internet.herokuapp.com");
+//        //workaround потому что никак не могу выйти на .openApp() из BaseTest
+//        mainPage2.goToHoversPage();
+
+
+        HoversPage hoversPage = new HoversPage(driver);
+
+        hoversPage.titleIsDisplayed();
         hoversPage.hoverToUser1AndStore();
         Assert.assertTrue(hoversPage.getUser1().isDisplayed());
-//
-//        hoversPage.hoverToUser2AndStore();
-//        Assert.assertTrue(hoversPage.getUser2().isDisplayed());
-//
-//        hoversPage.hoverToUser3AndStore();
-//        Assert.assertTrue(hoversPage.getUser3().isDisplayed());
-//
 
+        hoversPage.hoverToUser2AndStore();
 
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//
-//        driver.get("https://the-internet.herokuapp.com/hovers");
-//
-//        Assert.assertTrue(driver.findElement(By.xpath("//h3[text()='Hovers']")).isDisplayed());
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user1']")).isDisplayed());
-//
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(driver.findElement(By.cssSelector(".figure"))).build().perform();
-//        // //div[contains(@class, 'figure')]
-//        Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='name: user1']")).isDisplayed());
-//
-//        //move to 2nd
-//        //div[2][contains(@class, 'figure')]
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user2']")).isDisplayed());
-//        actions.moveToElement(driver.findElement(By.xpath("//div[2][contains(@class, 'figure')]")))
-//        .build().perform();
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user1']")).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='name: user2']")).isDisplayed());
-//
-//
-//        //move to 3rd
-//        //div[2][contains(@class, 'figure')]
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user3']")).isDisplayed());
-//        actions.moveToElement(driver.findElement(By.xpath("//div[3][contains(@class, 'figure')]")))
-//        .build().perform();
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user1']")).isDisplayed());
-//        Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='name: user2']")).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='name: user3']")).isDisplayed());
-//
-//        driver.quit();
+        hoversPage.hoverToUser2AndStore();
+        Assert.assertTrue(hoversPage.getUser2().isDisplayed());
+
+        hoversPage.hoverToUser3AndStore();
+        Assert.assertTrue(hoversPage.getUser3().isDisplayed());
 
     }
 
