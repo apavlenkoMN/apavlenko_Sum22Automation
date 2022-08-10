@@ -23,6 +23,18 @@ public class MainPage extends BasePage{
         return new LoginPage(driver);
     }
 
+    public LoginPage goToDOMPage(){
+        driver.findElement(By.linkText("Challenging DOM")).click();
+        return new LoginPage(driver);
+    }
+
+    public LoginPage goToHoversPage(){
+        driver.findElement(By.linkText("Hovers")).click();
+        return new LoginPage(driver);
+    }
+
+
+
 
    // https://the-internet.herokuapp.com/
 
