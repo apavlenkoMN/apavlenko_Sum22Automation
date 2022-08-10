@@ -28,11 +28,11 @@ public class HoversPage extends BasePage{
     @FindBy(xpath = "//h5[text()='name: user3']")
     private WebElement user3;
 
-    @FindBy(xpath = ".figure")
+    @FindBy(css = ".figure")
     private WebElement item1;
 
 
-    @FindBy(css = "//div[2][contains(@class, 'figure')]")
+    @FindBy(xpath = "//div[2][contains(@class, 'figure')]")
     private WebElement item2;
 
     @FindBy(xpath = "//div[3][contains(@class, 'figure')]")
@@ -59,11 +59,12 @@ public class HoversPage extends BasePage{
     }
 
 
-    public HoversPage hoverToUser1AndStore(){
-
+    public void hoverToUser1AndStore(){
         Actions actions = new Actions(driver);
         actions.moveToElement(item1).build().perform();
-        return this;
+//        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(B));
+        //return this;
     }
 
     public HoversPage hoverToUser2AndStore(){
