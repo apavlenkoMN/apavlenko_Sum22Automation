@@ -26,8 +26,16 @@
 <!--            <class name="com.provectus.tests.LoginTest"></class>-->
 
 
-            <class name="com.provectus.tests.LoginTrueFalse"></class>
-            <class name="com.provectus.tests.clicksDOM"></class>
+<!--            <class name="com.provectus.tests.LoginTrueFalse"></class>-->
+<!--            <class name="com.provectus.tests.clicksDOM"></class>-->
+<!--            <class name="com.provectus.tests.WebDriverAdvancedHT"></class>-->
+<!--            <class name="com.provectus.tests.TestsPageObject.LoginTest"></class>-->
+
+<!--            <class name="com.provectus.tests.TestsPageObject.LoginTest"></class>-->
+<!--            <class name="com.provectus.tests.TestsPageObject.LoginTrueFalse"></class>-->
+<!--            <class name="com.provectus.tests.TestsPageObject.clicksDOM_PO"></class>-->
+
+            <class name="com.provectus.tests.TestsPageObject.WebDriverAdvancedHT_PO"></class>
         </classes>
     </test>
 </suite>
