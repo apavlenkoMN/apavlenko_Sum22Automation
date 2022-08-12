@@ -23,14 +23,14 @@ public class MainPage extends BasePage{
         return new LoginPage(driver);
     }
 
-    public LoginPage goToDOMPage(){
+    public DOMPage goToDOMPage(){
         driver.findElement(By.linkText("Challenging DOM")).click();
-        return new LoginPage(driver);
+        return new DOMPage(driver);
     }
 
-    public LoginPage goToHoversPage(){
+    public HoversPage goToHoversPage(){
         driver.findElement(By.linkText("Hovers")).click();
-        return new LoginPage(driver);
+        return new HoversPage(driver);
     }
 
 
