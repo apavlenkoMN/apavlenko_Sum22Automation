@@ -38,7 +38,7 @@ public class DOMPage extends BasePage{
     }
 
 
-    public DOMPage findElementsInColumnN(int columnNumber){
+    public DOMPage findAndPrintsElementsInColumnN(int columnNumber){
 
         List<WebElement> columnElement = driver.findElements(By.xpath("//*/tr/td[" + columnNumber+"]"));
 
@@ -48,6 +48,12 @@ public class DOMPage extends BasePage{
         }
 
         return this;
+    }
+
+    public List<WebElement> findElementsInColumnN(int columnNumber){
+
+        List<WebElement> columnElement = driver.findElements(By.xpath("//*/tr/td[" + columnNumber+"]"));
+        return columnElement;
     }
 
 

@@ -28,17 +28,23 @@ public class clicksDOM_PO extends BaseTest {
 
 
 
-        MainPage mainPage = new MainPage(driver);
-        mainPage.goToDOMPage();
+       // MainPage mainPage = new MainPage(driver);
+        DOMPage domPage = openApp().goToDOMPage();
 
 
-        DOMPage domPage = new DOMPage(driver);
+        //DOMPage domPage = new DOMPage(driver);
 
         domPage.clickOnButtonsInOrder();
 
 
-            // method with any column
-        domPage.findElementsInColumnN(4);
+       // domPage.findAndPrintsElementsInColumnN(4);
+
+        List<WebElement> columnData =  domPage.findElementsInColumnN(3);
+
+        System.out.println("values of columns: ");
+        for (WebElement temp : columnData) {
+            System.out.println(temp.getText());
+        }
 
 
     }
