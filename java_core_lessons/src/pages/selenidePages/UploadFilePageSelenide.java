@@ -1,50 +1,50 @@
 package pages.selenidePages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
-import pages.SecurePage;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 
-public class UploadFilePageSelenide extends BasePage {
+import static com.codeborne.selenide.Selenide.$;
 
-
-    @FindBy(tagName = "h3")
-    private WebElement pageTitle;
-
-    @FindBy(id = "file-upload")
-    private WebElement fileUploadLink;
-
-    @FindBy(id = "file-submit")
-    private WebElement uploadButton;
+public class UploadFilePageSelenide {
 
 
-    public UploadFilePageSelenide(WebDriver driver){
+    SelenideElement pageTitle = $("h3");
 
-        super(driver);
-        PageFactory.initElements(driver, this);
+    SelenideElement fileUploadLink = $("#file-upload");
+    SelenideElement uploadButton = $("#file-submit");
+
+
+    public UploadFilePageSelenide open() {
+        Selenide.open("https://the-internet.herokuapp.com/upload");
+        pageTitle.isDisplayed();
+        return this;
     }
 
 
-    public String getPageTitle(){
+
+    public String getPageTitle() {
+        pageTitle.isDisplayed();
         return pageTitle.getText();
+        //  $("h3").shouldHave(Condition.text(title));
+
     }
 
     public UploadFilePageSelenide selectFile(String path){
-        fileUploadLink.sendKeys(path);
+      //  fileUploadLink.sendKeys(path);
+        fileUploadLink.shouldBe(Condition.visible).setValue(path);
         return this;
     }
 
     public UploadFilePageSelenide clickUpload(){
-        uploadButton.click();
+        uploadButton.shouldBe(Condition.visible).click();
         return this;
     }
 
-    public SecurePage upload(String path){
+    public UploadFilePageSelenide upload(String path){
         selectFile(path);
         clickUpload();
-        return new SecurePage(driver);
+        return new UploadFilePageSelenide();
     }
 
 

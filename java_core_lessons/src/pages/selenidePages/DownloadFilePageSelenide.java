@@ -1,5 +1,6 @@
 package pages.selenidePages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
@@ -10,6 +11,7 @@ public class DownloadFilePageSelenide {
 
     public DownloadFilePageSelenide open() {
         Selenide.open("https://the-internet.herokuapp.com/download");
+        pageTitle.isDisplayed();
         return this;
     }
 
@@ -28,7 +30,10 @@ public class DownloadFilePageSelenide {
 
 
     public String getPageTitle() {
-        return pageTitle.getValue();
+        pageTitle.isDisplayed();
+        return pageTitle.getText();
+      //  $("h3").shouldHave(Condition.text(title));
+
        // return pageTitle.getText();
     }
 
@@ -45,8 +50,7 @@ public class DownloadFilePageSelenide {
     public DownloadFilePageSelenide downloadTXTFile() {
 
         try {
-            txtFile.isDisplayed();
-            txtFile.click();
+            txtFile.shouldBe(Condition.visible).click();
         } catch (Exception e) {
             System.out.println("there is no txt file in the list");
         }
