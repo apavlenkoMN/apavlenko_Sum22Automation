@@ -36,7 +36,10 @@
 <!--            <class name="com.provectus.tests.TestsPageObject.clicksDOM_PO"></class>-->
 <!--            <class name="com.provectus.tests.TestsPageObject.UploadDownloadFileTest"></class>-->
 <!--            <class name="com.provectus.tests.SelenideTest"></class>-->
-            <class name="com.provectus.tests.DynamicLoadingTest"></class>
+<!--            <class name="com.provectus.tests.DynamicLoadingTest"></class>-->
+<!--            <class name="com.provectus.tests.backend.PetAPITest"></class>-->
+            <class name="com.provectus.tests.backend.StoreAPITest"></class>
+<!--            <class name="com.provectus.tests.backend.StoreAPITest"></class>-->
 <!--            <class name="com.provectus.tests.TestsPageObject.WebDriverAdvancedHT_PO"></class>-->
         </classes>
     </test>
