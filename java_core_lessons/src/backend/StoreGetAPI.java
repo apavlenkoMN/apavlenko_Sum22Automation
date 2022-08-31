@@ -13,9 +13,7 @@ import java.io.IOException;
 
 public class StoreGetAPI {
 
-    public void getOrderById (Integer id) throws IOException{
-
-
+    public Response getOrderById (Integer id) throws IOException{
 
         Request request = new Request.Builder()
                 .get()
@@ -30,9 +28,16 @@ public class StoreGetAPI {
         String responseBody = response.body().string();
         JSONObject responseJson = new JSONObject(responseBody);
 
+        return response;
+
     }
 
-    public void serializeStore(Store store) throws IOException{
+//    public Integer getResponseCode (Response response) throws IOException {
+//
+//        return response.code();
+//    }
+
+    public Integer serializeStore(Store store) throws IOException{
 
         Gson gson = new Gson();
         String json = gson.toJson(store);
@@ -49,9 +54,18 @@ public class StoreGetAPI {
 
         OkHttpClient client = new OkHttpClient();
         Response response = client.newCall(request).execute();
+//        String responseBody = response.body().string();
 //респонсе преобразовать в джсон, и дальше чекать его
+        //getResponseCode(response);
         Store newOrder = gson.fromJson(response.body().string(),Store.class);
         System.out.println(newOrder);
+
+
+//        String responseBody = response.body().string();
+        //JSONObject responseJson = new JSONObject(responseBody);
+
+       // return responseBody.toString();
+        return response.code();
     }
 
     public String returnField (String id, String field) throws IOException{
@@ -95,7 +109,7 @@ public class StoreGetAPI {
     }
 
 
-    public JSONObject deleteOrder(Integer id) throws IOException{
+    public Response deleteOrder(Integer id) throws IOException{
 
         Request request = new Request.Builder()
                 .delete()
@@ -110,7 +124,7 @@ public class StoreGetAPI {
         JSONObject responseJson = new JSONObject(responseBody);
 
         //System.out.println(responseJson);
-        return responseJson;
+        return response;
 
     }
 

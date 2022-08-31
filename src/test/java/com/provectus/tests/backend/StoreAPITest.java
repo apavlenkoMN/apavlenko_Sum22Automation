@@ -2,6 +2,7 @@ package com.provectus.tests.backend;
 
 import backend.StoreGetAPI;
 import backend.enteties.Store;
+import okhttp3.Response;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ import java.io.IOException;
 public class StoreAPITest {
 
     @Test (priority = 10)
-    public void PostStoreTest() throws IOException {
+    public void postStoreTest() throws IOException {
 
         StoreGetAPI newOrder = new StoreGetAPI();
 
@@ -19,20 +20,32 @@ public class StoreAPITest {
         store.setId(8);
         store.setPetId(2234);
         store.setQuantity(12);
-        store.setStatus("inprogress");
+        store.setStatus("available");
         store.setComplete(true);
-        newOrder.serializeStore(store);
+        Integer responseCode = newOrder.serializeStore(store);
 
         System.out.println("Asserts different field values");
-        Assert.assertEquals(store.getId().toString(), "8");
-        Assert.assertEquals(store.getPetId().toString(), "2234");
-        Assert.assertEquals(store.getQuantity().toString(), "12");
+        Assert.assertEquals(responseCode.toString(), "200");
+
+
+//        Assert.assertEquals(store.getId().toString(), "8");
+//        Assert.assertEquals(store.getPetId().toString(), "2234");
+//        Assert.assertEquals(store.getQuantity().toString(), "12");
+
+//        Assert.assertEquals(store.getId().toString(), "8");
+//        Assert.assertEquals(store.getPetId().toString(), "2234");
+//        Assert.assertEquals(store.getQuantity().toString(), "12");
+//        System.out.println(response.get("Id").toString());
+//        System.out.println(response.get("PetId").toString());
+//        System.out.println(response.get("Quantity").toString());
+
+
 
     }
 
 
     @Test (priority = 20)
-    public void GetOrderTest() throws IOException {
+    public void getOrderTest() throws IOException {
 
 
         StoreGetAPI newOrder = new StoreGetAPI();
@@ -46,7 +59,7 @@ public class StoreAPITest {
     }
 
     @Test (priority = 30)
-    public void GetInventoryTest() throws IOException {
+    public void getInventoryTest() throws IOException {
 
         StoreGetAPI inventory = new StoreGetAPI();
 
@@ -56,24 +69,24 @@ public class StoreAPITest {
         System.out.println("Assert that not empty");
         Assert.assertNotNull(responseJson.get("available").toString());
 
-
     }
 
     @Test (priority = 40)
-    public void DeleteOrderTest() throws IOException {
+    public void deleteOrderTest() throws IOException {
 
         StoreGetAPI newOrder = new StoreGetAPI();
 
-        JSONObject responseJson = newOrder.deleteOrder(8);
+        Response responseJson = newOrder.deleteOrder(8);
         System.out.println(responseJson);
 
-        System.out.println("Asserts what?");
 
-       newOrder.getOrderById(8);
-       // Assert.assertNotNull(responseJson.get("available").toString());
-       // System.out.println(responseJson.get("code"));
+
+        System.out.println("Asserts code?");
+        //System.out.println(newOrder.getOrderById(8));
+        Assert.assertEquals(Integer.toString(responseJson.code()), "200");
 
     }
+
 
 
 
